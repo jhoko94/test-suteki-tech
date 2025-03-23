@@ -2,8 +2,8 @@
     <section class="text-center px-4 mb-31 md:px-[105px]">
         <h3 class="text-3xl font-bold mb-3">Rekomendasi Kampus</h3>
         <p class="text-sm text-[#848B9D] mb-9">Memberikan sistim pelayanan untuk para calon mahasiswa Jawa Barat dan Banten</p>
-        <div class="grid grid-cols-4 gap-y-6 gap-x-6 relative">
-            <div v-for="item in 8" :key="item" class="min-h-[397px] w-[278px] rounded-xl">
+        <div class="grid xl:grid-cols-4 grid-cols-2 justify-items-center gap-y-6 gap-x-6 relative">
+            <div v-for="item in 8" :key="item" class="min-h-[397px] rounded-xl">
                 <div class="rounded-xl text-left relative">
                     <img src="/static/contoh-foto.png" alt="contoh-foto"/>
                     <div class="absolute top-[10px] pl-3">
@@ -22,8 +22,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="w-full px-3 relative top-[-40px]">
-                    <div class="bg-white shadow-xl shadow-[#EFF1F6] rounded-xl text-left p-5">
+                <div class="w-full xl:px-3 relative top-[-40px]">
+                    <div class="bg-white shadow-xl shadow-[#EFF1F6] xl:rounded-xl rounded-b-xl text-left p-5">
                         <h5 class="text-sm font-bold text-[#3C3B52] mb-1">Universitas Muhammadiyah Malang</h5>
                         <div class="flex items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#3A5AE3" class="size-6">
@@ -45,10 +45,10 @@
                 <img src="/static/back-vector.svg" alt="back" />
             </div>
         </div>
-        <div class="grid grid-cols-3 gap-x-6 items-center mt-7">
-            <div class="border border-[#E6E9ED] h-0 w-full"></div>
-            <button class="rounded-md border border-[#0AA8C1] py-4 px-16 mt-12 text-center text-sm transition-all shadow-sm hover:shadow-lg text-[#0AA8C1] hover:text-white hover:bg-[#0AA8C1] hover:border-[#0AA8C1] focus:text-white focus:bg-[#0AA8C1] focus:border-[#0AA8C1] active:border-[#0AA8C1] active:text-white active:bg-[#0AA8C1] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none relative top-[-20px]" type="button">Kampus Lainnya (+32)</button>
-            <div class="border border-[#E6E9ED] h-0 w-full"></div>
+        <div class="grid lg:grid-cols-3 gap-x-6 items-center lg:mt-7">
+            <div class="hidden lg:block border border-[#E6E9ED] h-0 w-full"></div>
+            <button class="rounded-md border border-[#0AA8C1] py-4 px-16 lg:mt-12 text-center text-sm transition-all shadow-sm hover:shadow-lg text-[#0AA8C1] hover:text-white hover:bg-[#0AA8C1] hover:border-[#0AA8C1] focus:text-white focus:bg-[#0AA8C1] focus:border-[#0AA8C1] active:border-[#0AA8C1] active:text-white active:bg-[#0AA8C1] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none relative top-[-20px]" type="button">Kampus Lainnya (+32)</button>
+            <div class="hidden lg:block border border-[#E6E9ED] h-0 w-full"></div>
         </div>
     </section>
 </template>

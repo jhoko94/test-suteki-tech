@@ -1,7 +1,10 @@
 <template>
     <div>
-      <Step />
-      <About />
-      <Recommendation />
+        <carousel />
+        <Step />
+        <About />
+        <Recommendation />
+        <recommend-dept />
+        <Footer />
     </div>
 </template>
