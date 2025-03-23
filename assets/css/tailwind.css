@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+.btn {
+    border: 1px solid #0AA8C1;
+    background-color: #0AA8C1;
+    font-size: 14px;
+    padding: 11px 28px;
+    border-radius: 4px;
+    color: #FFFFFF;
+}
+
+.outlined {
+    background-color: unset;
+    color: #0AA8C1;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+.btn-small {
+    padding: 0 28px;
+}
