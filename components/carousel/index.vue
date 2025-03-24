@@ -9,13 +9,13 @@
       >
         <div class="relative flex w-full xl:h-[400px] lg:h-[270px] md:h-[200px] h-[130px] items-center justify-center">
           <div
-            v-for="(image, index) in images"
+            v-for="(item, index) in banners"
             :key="index"
             class="absolute transition-all duration-500 ease-in-out transform will-change-transform"
             :class="getSlideClass(index)"
           >
             <img
-              :src="image"
+              :src="`https://apicampusdir.civitas.id${item.image}`"
               class="object-cover rounded-xl shadow-lg transition-transform duration-500 ease-in-out"
               :class="getImageClass(index)"
             />
@@ -25,7 +25,7 @@
   
       <div class="flex space-x-2">
         <span
-          v-for="(image, index) in images"
+          v-for="(item, index) in banners"
           :key="index"
           class="w-3 h-3 rounded-full transition-all duration-300"
           :class="index === currentIndex ? 'bg-[#0AA8C1] scale-125 w-5' : 'bg-gray-400'"
@@ -35,24 +35,35 @@
   </template>
   
   <script>
+  import { useBannerStore } from './store';
+  import { toRaw } from "vue";
+
   export default {
     data() {
       return {
-        images: [
-          "/contoh-banner-1.png",
-          "/contoh-banner-2.png",
-          "/contoh-banner-3.png",
-          "/contoh-banner-4.png",
-        ],
         currentIndex: 0,
         startX: 0,
         isSwiping: false,
         isScrolling: false,
+        bannerStore: useBannerStore(),
       };
+    },
+    computed: {
+        banners() {
+            return this.bannerStore.banners;
+        }
+    },
+    created() {
+      this.bannerStore.fetchBanners()
+    },
+    watch: {
+      banners(newBanners) {
+        return toRaw(newBanners)
+      }
     },
     methods: {
       getSlideClass(index) {
-        const total = this.images.length;
+        const total = this.banners.length;
         if (index === this.currentIndex) {
           return "w-[55%] translate-x-0 scale-100 opacity-100 z-10";
         } else if (index === (this.currentIndex - 1 + total) % total) {
@@ -67,9 +78,9 @@
       getImageClass(index) {
         if (index === this.currentIndex) {
           return "";
-        } else if (index === (this.currentIndex - 1 + this.images.length) % this.images.length) {
+        } else if (index === (this.currentIndex - 1 + this.banners.length) % this.banners.length) {
           return "mask-gradient-left";
-        } else if (index === (this.currentIndex + 1) % this.images.length) {
+        } else if (index === (this.currentIndex + 1) % this.banners.length) {
           return "mask-gradient-right";
         }
         return "";
@@ -114,11 +125,11 @@
       },
   
       prevSlide() {
-        this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
+        this.currentIndex = (this.currentIndex - 1 + this.banners.length) % this.banners.length;
       },
   
       nextSlide() {
-        this.currentIndex = (this.currentIndex + 1) % this.images.length;
+        this.currentIndex = (this.currentIndex + 1) % this.banners.length;
       }
     }
   };

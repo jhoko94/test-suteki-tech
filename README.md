@@ -4,6 +4,9 @@ Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduct
 
 ## Setup
 
+Create env and set:
+VITE_API_KEY=
+
 Make sure to install dependencies:
 
 ```bash

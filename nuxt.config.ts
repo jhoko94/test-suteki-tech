@@ -9,4 +9,15 @@ export default defineNuxtConfig({
       tailwindcss(),
     ],
   },
+  modules: ['@pinia/nuxt'],
+
+  nitro: {
+    devProxy: {
+      "/api/": {
+        target: "https://apicampusdir.civitas.id",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ""),
+      },
+    },
+  },
 })
